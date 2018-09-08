@@ -1,0 +1,55 @@
+.fog {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: -0vh;
+    z-index: -10;
+    overflow: hidden;
+    background:rgba(100, 180, 204, 0.3);
+}
+
+.fog_container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.fog_img1 {
+    width: 300vw;
+    height: 100vh;
+    position: absolute;
+    bottom: 0;
+    background: url('../assets/fog.png') repeat-x;
+    background-size: contain;
+    background-position: center;
+    animation: marquee 60s linear infinite;
+}
+
+.fog_img2 {
+    width: 300vw;
+    height: 50vh;
+    bottom: 10vh;
+    position: absolute;
+    background: url('../assets/fog.png') repeat-x;
+    background-size: contain;
+    background-position: center;
+    animation: marquee 40s linear infinite;
+}
+
+.fog_img3 {
+    width: 300vw;
+    height: 60vh;
+    bottom: -10vh;
+    position: absolute;
+    background: url('../assets/fog.png') repeat-x;
+    background-size: contain;
+    background-position: center;
+    animation: marquee 60s linear reverse infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-200vw, 0, 0); }
+}
