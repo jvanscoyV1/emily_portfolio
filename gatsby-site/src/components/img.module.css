@@ -1,8 +1,19 @@
+.imgContainer {
+    background-color: rgba(0, 0, 0, 0);
+    text-align: center;
+    height: 40rem;
+    width: 40rem;
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    margin: -20rem;
+}
+
 .base {
     display: block;
-    width:  25rem;
-    height: 25rem;
-    margin: -12.5rem;
+    width:  20rem;
+    height: 20rem;
+    margin: -10rem;
     position: absolute;
     top: 45%;
     left: 50%;
@@ -11,12 +22,17 @@
     z-index: 10;
 }
 
+.hidden {
+    animation: floataway 0.5s;
+    opacity: 0.0;
+}
+
 .imgSlideRight {
-    animation: slideRight 1s;
+    animation: slideRight 0.4s;
     display: block;
-    width:  25rem;
-    height: 25rem;
-    margin: -12.5rem;
+    width:  20rem;
+    height: 20rem;
+    margin: -10rem;
     position: absolute;
     top: 45%;
     left: 50%;
@@ -26,11 +42,11 @@
 }
 
 .imgSlideRight2 {
-    animation: slideRight2 1s;
+    animation: slideRight2 0.4s;
     display: block;
-    width:  25rem;
-    height: 25rem;
-    margin: -12.5rem;
+    width:  20rem;
+    height: 20rem;
+    margin: -10rem;
     position: absolute;
     top: 45%;
     left: 50%;
@@ -40,11 +56,11 @@
 }
 
 .imgSlideLeft {
-    animation: slideLeft 1s;
+    animation: slideLeft 0.4s;
     display: block;
-    width:  25rem;
-    height: 25rem;
-    margin: -12.5rem;
+    width:  20rem;
+    height: 20rem;
+    margin: -10rem;
     position: absolute;
     top: 45%;
     left: 50%;
@@ -54,11 +70,11 @@
 }
 
 .imgSlideLeft2 {
-    animation: slideLeft2 1s;
+    animation: slideLeft2 0.4s;
     display: block;
-    width:  25rem;
-    height: 25rem;
-    margin: -12.5rem;
+    width:  20rem;
+    height: 20rem;
+    margin: -10rem;
     position: absolute;
     top: 45%;
     left: 50%;
@@ -73,7 +89,7 @@
     height: 5rem;
     position: absolute;
     top: 45%;
-    left: 90%;
+    left: 85%;
     margin: -2.5rem;
     z-index: 10;
 }
@@ -84,7 +100,7 @@
     height: 5rem;
     position: absolute;
     top: 45%;
-    left: 10%;
+    left: 15%;
     margin: -2.5rem;
     z-index: 10;
 }
@@ -95,9 +111,7 @@
 .arrowback:hover {
     transform: scale(1.05);
 }
-.grid:hover {
-    transform: scale(1.05);
-}
+
 .grid {
     transition: transform ease-in-out .2s;
     width: 3rem;
@@ -109,55 +123,109 @@
     z-index: 10;
 }
 
-@media only screen and (max-width: 675px) {
+
+.gridButton:hover {
+    transform: scale(1.15);
+}
+
+.gridButton {
+    transition: transform ease-in-out .2s;
+    width: 3rem;
+    height: 3rem;
+    position: fixed;
+    top: 90%;
+    left: 50%;
+    margin: -1.5rem;
+    z-index: 100;
+}
+
+.gallery_inactive {
+    display: none;
+    top: 100%;
+}
+
+.gallery_active {
+    animation: floatup 0.5s;
+    display: grid;
+    grid-template-rows: 5% 40% 5% 40% 5%;
+    grid-template-columns: 30% 3% 30% 3% 30%;
+    height: 30rem;
+    width:  40rem;
+    top: 65%;
+    left: 50%;
+    margin: -20rem;
+    position: absolute;
+    animation: floatup 0.5s;
+}
+
+.galleryImg {
+    height: 90%;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    position: relative;
+    margin: -45%;
+}
+
+@media only screen and (max-width: 800px) {
 
     .base {
-        width:  15rem;
-        height: 15rem;
-        margin: -7.5rem;
+        width:  12rem;
+        height: 12rem;
+        margin: -6rem;
         top: 45%;
         left: 50%;
     }
 
     .imgSlideRight {
-        width:  15rem;
-        height: 15rem;
-        margin: -7.5rem;
+        width:  12rem;
+        height: 12rem;
+        margin: -6rem;
         top: 45%;
         left: 50%;
     }
     
     .imgSlideRight2 {
-        width:  15rem;
-        height: 15rem;
-        margin: -7.5rem;
+        width:  12rem;
+        height: 12rem;
+        margin: -6rem;
         top: 45%;
         left: 50%;
     }
     
     .imgSlideLeft {
-        width:  15rem;
-        height: 15rem;
-        margin: -7.5rem;
+        width:  12rem;
+        height: 12rem;
+        margin: -6rem;
         top: 45%;
         left: 50%;
     }
     
     .imgSlideLeft2 {
         display: block;
-        width:  15rem;
-        height: 15rem;
-        margin: -7.5rem; 
+        width:  12rem;
+        height: 12rem;
+        margin: -6rem; 
         top: 45%;
         left: 50%;
     }
 
     .arrow {
-        left: 80%;
+        left: 75%;
     }
 
     .arrowback {
-        left: 20%;
+        left: 25%;
+    }
+
+    .gallery_active {
+        height: 20rem;
+        width:  25rem;
+        top: 65%;
+        left: 50%;
+        margin: -12.5rem;
+        position: fixed;
+        animation: floatup 0.5s;
     }
 }
 
@@ -165,9 +233,9 @@
     0%{
        opacity: 0.0;
        left: 15%;  
-       transform: rotateY(-90deg) translateZ(200px);
+       transform: rotateY(-120deg) translateZ(200px);
     } 50% {
-        opacity: 0.6;
+        opacity: 0.1;
     } 100% {
         opacity: 1.0;
         transform: rotateY(0deg) translateZ(0);
@@ -178,37 +246,57 @@
     0%{
         opacity: 0.0;
         left: 15%;  
-        transform: rotateY(-90deg) translateZ(200px);
+        transform: rotateY(-120deg) translateZ(200px);
      } 50% {
-         opacity: 0.6;
+         opacity: 0.1;
      } 100% {
          opacity: 1.0;
          transform: rotateY(0deg) translateZ(0);
      }
 }
-
 
 @keyframes slideLeft {
     0%{
        opacity: 0.0;
        left: 85%;
-       transform: rotateY(-90deg) translateZ(-200px);
+       transform: rotateY(-120deg) translateZ(-200px);
     } 50% {
-        opacity: 0.8;
+        opacity: 0.1;
     } 100% {
         opacity: 1.0;
         transform: rotateY(0deg) translateZ(0);
     }
 }
+
 @keyframes slideLeft2 {
     0%{
         opacity: 0.0;
         left: 85%;
-        transform: rotateY(-90deg) translateZ(-200px);
+        transform: rotateY(-120deg) translateZ(-200px);
      } 50% {
-         opacity: 0.8;
+         opacity: 0.1;
      } 100% {
          opacity: 1.0;
          transform: rotateY(0deg) translateZ(0);
      }
+}
+
+@keyframes floatup {
+    0%{
+        opacity: 0.0;
+        top: 100%;
+    } 100% {
+        opacity: 1.0;
+        top: 65%;
+    }
+}
+
+@keyframes floataway {
+    from {
+        top: 45%;
+        opacity: 1.0;
+    } to {
+        top: -45%;
+        opacity: 0.0;
+    }
 }

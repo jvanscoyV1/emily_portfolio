@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import Instafeed from 'instafeed.js';
 import Header from '../components/header';
 
 
@@ -14,7 +13,7 @@ const Layout = ({ children, data }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <Header siteTitle={'Emily VanScoy'} />
+    <Header siteTitle={'Emily VanScoy'}/>
     <div
       style={{
         margin: '0 auto',
