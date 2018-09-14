@@ -23,7 +23,6 @@ const Header = ({ siteTitle }) => (
         maxWidth: 960,
         padding: '1.45rem 1.0875rem',
         textAlign: "center",
-        position: 'sticky',
         top: 0,
         height: '10vh',
         left: '50%',

@@ -4,8 +4,10 @@ import arrow from '../assets/arrow.png'
 import arrowback from '../assets/arrowleft.png'
 import centipede from '../assets/cent.png'
 import grid from '../assets/grid.png'
+import arrowDown from "../assets/arrowdown.png"
 import { css } from 'glamor'
 import imgStyles from './img.module.css'
+import { array } from "prop-types";
 
 
 class InstaImg extends React.Component {
@@ -19,6 +21,8 @@ class InstaImg extends React.Component {
       galleryclass: imgStyles.gallery_inactive,
       rightarrowclass: imgStyles.arrow, 
       leftarrowclass: imgStyles.arrowback, 
+      gridButton: grid,
+      gridButtonClass: imgStyles.gridButton,
     }
   }
 
@@ -30,6 +34,7 @@ class InstaImg extends React.Component {
     for(let i = 0; i < this.imgs.length; i++){
       grid.push(
         <img
+          key={i}
           className={imgStyles.galleryImg}
           src={this.imgs[i]}
           style={{
@@ -94,24 +99,30 @@ class InstaImg extends React.Component {
             
           </div>
             <img 
-              className={imgStyles.gridButton}
+              className={this.state.gridButtonClass}
               onClick= {() => {
-                if(this.state.galleryclass == imgStyles.gallery_inactive)
+                if(this.state.galleryclass == imgStyles.gallery_inactive 
+                  || this.state.galleryclass == imgStyles.gallery_inactive_animate )
                   this.setState(prevState => ({
                     galleryclass: imgStyles.gallery_active,
                     imgclass: imgStyles.base + " " + imgStyles.hidden,
                     rightarrowclass: imgStyles.arrow + " " + imgStyles.hidden,
                     leftarrowclass: imgStyles.arrowback + " " + imgStyles.hidden,
+                    gridButton: arrowDown,
+                    gridButtonClass: imgStyles.changeButton,
                   }));
                 else
                   this.setState(prevState => ({
-                    galleryclass: imgStyles.gallery_inactive,
-                    imgclass: imgStyles.base,
-                    rightarrowclass: imgStyles.arrow,
-                    leftarrowclass: imgStyles.arrowback,
+                    galleryclass: imgStyles.gallery_inactive_animate,
+                    imgclass: imgStyles.base + " " + imgStyles.unhide,
+                    rightarrowclass: imgStyles.arrow + " " + imgStyles.unhide,
+                    leftarrowclass: imgStyles.arrowback + " " + imgStyles.unhide,
+                    gridButton: grid,
+                    gridButtonClass: imgStyles.gridButton,
+
                   }));
               }}
-              src={ grid }
+              src={ this.state.gridButton }
             />
           <div className={this.state.galleryclass}>
               {this.createGrid()}

@@ -27,6 +27,10 @@
     opacity: 0.0;
 }
 
+.unhide {
+    animation: floatback 0.5s;
+}
+
 .imgSlideRight {
     animation: slideRight 0.4s;
     display: block;
@@ -139,32 +143,77 @@
     z-index: 100;
 }
 
-.gallery_inactive {
-    display: none;
-    top: 100%;
+.changeButton {
+    transition: transform ease-in-out .2s;
+    animation: spin 0.4s;
+    width: 3rem;
+    height: 3rem;
+    position: fixed;
+    top: 90%;
+    left: 50%;
+    margin: -1.5rem;
+    z-index: 100;
 }
 
-.gallery_active {
-    animation: floatup 0.5s;
+.changeButton:hover {
+    transform: scale(1.15);
+}
+
+.gallery_inactive {
     display: grid;
     grid-template-rows: 5% 40% 5% 40% 5%;
     grid-template-columns: 30% 3% 30% 3% 30%;
     height: 30rem;
     width:  40rem;
-    top: 65%;
+    margin: -20rem;
+    position: absolute;
+    opacity: 0.0;
+    top: 100%;
+    left: 50%;
+}
+
+.gallery_inactive_animate {
+    animation: floatdown 0.5s;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 30rem;
+    width:  40rem;
+    margin: -20rem;
+    position: absolute;
+    opacity: 0.0;
+    top: 100%;
+    left: 50%;
+}
+
+.gallery_active {
+    animation: floatup 0.5s;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 30rem;
+    width:  40rem;
+    top: 60%;
     left: 50%;
     margin: -20rem;
     position: absolute;
     animation: floatup 0.5s;
+    justify-content: space-between;
 }
 
 .galleryImg {
-    height: 90%;
-    width: 90%;
-    top: 50%;
-    left: 50%;
-    position: relative;
-    margin: -45%;
+    height: 35%;
+    width:  25%;
+    margin: 4%;
+    transition: all ease-in-out .2s;
+    border-radius: 10px;
+    box-shadow: 2px 2px 15px rgb(115, 116, 150);
+}
+
+.galleryImg:hover {
+    transform: scale(1.15);
+    box-shadow: 2px 2px 30px rgb(115, 116, 150);
 }
 
 @media only screen and (max-width: 800px) {
@@ -218,10 +267,20 @@
         left: 25%;
     }
 
+    .gallery_inactive_animate {
+        height: 20rem;
+        width:  25rem;
+        top: 60%;
+        left: 50%;
+        margin: -12.5rem;
+        position: fixed;
+        animation: floatdown 0.5s;
+    }
+
     .gallery_active {
         height: 20rem;
         width:  25rem;
-        top: 65%;
+        top: 60%;
         left: 50%;
         margin: -12.5rem;
         position: fixed;
@@ -287,7 +346,27 @@
         top: 100%;
     } 100% {
         opacity: 1.0;
-        top: 65%;
+        top: 60%;
+    }
+}
+
+@keyframes floatdown {
+    0%{
+        opacity: 1.0;
+        top: 60%;
+    } 100% {
+        opacity: 0.0;
+        top: 100%;
+    }
+}
+
+@keyframes floatback {
+    0%{
+        opacity: 0.0;
+        top: -45%;
+    } 100% {
+        opacity: 1.0;
+        top: 45%;
     }
 }
 
@@ -298,5 +377,13 @@
     } to {
         top: -45%;
         opacity: 0.0;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(180deg);
+    } to {
+        transform: rotate(0deg);
     }
 }
