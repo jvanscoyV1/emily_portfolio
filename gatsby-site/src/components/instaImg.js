@@ -3,6 +3,7 @@ import ele from '../assets/ele.png'
 import arrow from '../assets/arrow.png'
 import arrowback from '../assets/arrowleft.png'
 import centipede from '../assets/cent.png'
+import cow from '../assets/cow.jpg'
 import grid from '../assets/grid.png'
 import arrowDown from "../assets/arrowdown.png"
 import { css } from 'glamor'
@@ -13,7 +14,7 @@ import { array } from "prop-types";
 class InstaImg extends React.Component {
   constructor() {
     super();
-    this.imgs = [centipede, ele, centipede, ele, centipede, ele]
+    this.imgs = [centipede, ele, cow, centipede, ele, cow]
     
     this.state = { 
       curr: 0,

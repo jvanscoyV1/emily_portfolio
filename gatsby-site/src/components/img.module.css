@@ -160,7 +160,7 @@
 }
 
 .gallery_inactive {
-    display: grid;
+    display: none;
     grid-template-rows: 5% 40% 5% 40% 5%;
     grid-template-columns: 30% 3% 30% 3% 30%;
     height: 30rem;
@@ -174,7 +174,7 @@
 
 .gallery_inactive_animate {
     animation: floatdown 0.5s;
-    display: flex;
+    display: none;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
